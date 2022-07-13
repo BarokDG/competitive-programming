@@ -1,5 +1,5 @@
 # Selection Sort
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an unsorted array of size N, use selection sort to sort arr[] in increasing order.</span></p>
 
