@@ -3,12 +3,10 @@
 class Solution: 
     def select(self, arr, i):
         # code here 
-        snum = arr[i]
         ind = i
         
         for x in range(i, len(arr)):
-            if arr[x] < snum:
-                snum = arr[x]
+            if arr[x] < arr[ind]:
                 ind = x
         
         return ind
