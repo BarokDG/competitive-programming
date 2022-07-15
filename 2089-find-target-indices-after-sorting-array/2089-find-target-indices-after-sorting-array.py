@@ -4,15 +4,13 @@ class Solution:
         
         nums.sort()
         
-        count = nums.count(target)
-        index = 0
-                
-        if count > 0:
-            index = nums.index(target)
-            outputarr.append(index)
+        if nums.count(target) > 0:
+            i = nums.index(target)
+            outputarr.append(i)
 
-        if count > 1:
-            for i in range(count-1):
-                outputarr.append(index + (i + 1))
+            j = i + 1
+            while (j <= len(nums) - 1) and nums[i] == nums[j]:
+                outputarr.append(j)
+                j += 1
         
         return outputarr
