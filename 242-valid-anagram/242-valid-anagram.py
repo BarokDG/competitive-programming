@@ -2,7 +2,10 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         slis, tlis = list(s), list(t)
         
-        slis.sort()
-        tlis.sort()
+        if len(slis) == len(tlis):
+            slis.sort()
+            tlis.sort()
+
+            return slis == tlis
         
-        return slis == tlis
+        return False
