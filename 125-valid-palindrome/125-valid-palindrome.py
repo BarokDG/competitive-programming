@@ -7,17 +7,4 @@ class Solution:
             if char.isalnum():
                 r += char
         
-        i = 0
-        j = len(r) - 1
-        
-        for x in range(len(r)):
-            if i == j:
-                break
-            
-            if (r[i] != r[j]):
-                return False
-            
-            i += 1
-            j -= 1
-        
-        return True
+        return r == r[::-1]
