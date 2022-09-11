@@ -10,5 +10,4 @@ class Solution:
                 if snums[i] + snums[j] > snums[j] + snums[i]:
                     snums[i], snums[j] = snums[j], snums[i]
         
-        
         return "0" if snums[0] == "0" else "".join(snums)
