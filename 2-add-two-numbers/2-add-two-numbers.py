@@ -22,7 +22,8 @@ class Solution:
         num2 += str(l2.val)
         num2 = int(num2[::-1])
         
-        result = str(num1 + num2)[::-1]
+        result = num1 + num2
+        result = str(result)[::-1]
         
         newListNode = ListNode()
         newListNode.val = result[0]
