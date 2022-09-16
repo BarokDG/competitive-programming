@@ -15,14 +15,13 @@ class Solution:
         
         for char in s: 
             if prevChar == "I" and char in ["V", "X"]:
-                result += romanMap[char] - (2 * romanMap[prevChar])
+                result -= 2 * romanMap[prevChar]
             elif prevChar == "X" and char in ["L", "C"]:
-                result += romanMap[char] - (2 * romanMap[prevChar])
+                result -= 2 * romanMap[prevChar]
             elif prevChar == "C" and char in ["D", "M"]:
-                result += romanMap[char] - (2 * romanMap[prevChar])
-            else:
-                result += romanMap[char]
-                            
+                result -= 2 * romanMap[prevChar]
+            
+            result += romanMap[char] 
             prevChar = char
                     
         return result
