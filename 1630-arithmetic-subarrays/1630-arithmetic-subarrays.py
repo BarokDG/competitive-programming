@@ -4,6 +4,11 @@ class Solution:
         
         for i in range(len(l)):
             temp = nums.copy()[l[i]:r[i] + 1]
+            
+            if len(temp) < 3:
+                results.append(True)
+                continue
+            
             temp.sort()
             
             change = temp[1] - temp[0]
