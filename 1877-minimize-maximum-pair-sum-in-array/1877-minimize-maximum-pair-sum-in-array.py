@@ -2,10 +2,7 @@ class Solution:
     def minPairSum(self, nums: List[int]) -> int:
         maxSum = 0
         l, r = 0, len(nums) - 1
-        
-        if len(nums) == 2:
-            return nums[0] + nums[1]
-        
+               
         nums.sort()
         
         for i in range(len(nums)):
