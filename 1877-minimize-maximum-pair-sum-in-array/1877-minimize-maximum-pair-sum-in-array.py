@@ -1,8 +1,7 @@
 class Solution:
     def minPairSum(self, nums: List[int]) -> int:
         maxSum = 0
-        l = 0
-        r = len(nums) - 1
+        l, r = 0, len(nums) - 1
         
         nums.sort()
         
