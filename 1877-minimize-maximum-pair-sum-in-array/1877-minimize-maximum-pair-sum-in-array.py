@@ -7,7 +7,7 @@ class Solution:
         nums.sort()
         
         for i in range(len(nums)):
-            if l == r:
+            if l > r:
                 break
             
             maxSum = max(maxSum, nums[l] + nums[r])
