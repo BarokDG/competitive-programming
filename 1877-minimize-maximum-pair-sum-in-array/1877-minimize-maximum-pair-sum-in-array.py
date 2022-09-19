@@ -5,10 +5,7 @@ class Solution:
                
         nums.sort()
         
-        for i in range(len(nums)):
-            if l > r:
-                break
-            
+        while l < r:           
             maxSum = max(maxSum, nums[l] + nums[r])
             l += 1
             r -= 1
