@@ -2,23 +2,31 @@ class Solution:
     def pancakeSort(self, arr: List[int]) -> List[int]:
         flips = []
         
+        
         def flipArraySlice(k: int, arraySlice: List[int]):
             arr[:k] = arraySlice[::-1]
             flips.append(k)
+            
         
-        pos = len(arr) - 1
+        placeCurrentElemAt = len(arr) - 1
         currentElem = len(arr)
-                
-        while pos > 0:
+        
+        while placeCurrentElemAt > 0:
             currentElemIndex = arr.index(currentElem)
-            if currentElemIndex != pos:
-                if currentElemIndex != 0:
-                    flipArraySlice(currentElemIndex + 1, arr[:currentElemIndex + 1])
+            
+            if currentElemIndex == placeCurrentElemAt:
+                placeCurrentElemAt -= 1
+                currentElem -= 1
+                continue
+            
+            if currentElemIndex != 0:
+                # place CurrentElem at arr[0]
+                flipArraySlice(currentElemIndex + 1, arr[:currentElemIndex + 1])
                 
-                # flip again
-                flipArraySlice(pos + 1, arr[:pos + 1])
+            # place currentElem at sortedPosition
+            flipArraySlice(placeCurrentElemAt + 1, arr[:placeCurrentElemAt + 1])
                                 
-            pos -= 1
+            placeCurrentElemAt -= 1
             currentElem -= 1
             
         return flips
