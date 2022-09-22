@@ -1,7 +1,7 @@
 class Solution:
     def minSetSize(self, arr: List[int]) -> int:
         frequencyMap = {}
-        arrSizeLimit = len(arr) // 2
+        halfArraySize = len(arr) // 2
         
         for num in arr:
             if num in frequencyMap:
@@ -9,16 +9,12 @@ class Solution:
             else:
                 frequencyMap[num] = 1
                 
-        fMapValues = []
-        for key in frequencyMap:
-            fMapValues.append(frequencyMap[key])
+        fMapValues = sorted(frequencyMap.values())
         
-        fMapValues.sort()
-
-        output = 0
+        setSize = 0
         
-        while arrSizeLimit > 0:
-            arrSizeLimit -= fMapValues.pop()
-            output += 1
+        while halfArraySize > 0:
+            halfArraySize -= fMapValues.pop()
+            setSize += 1
         
-        return output
+        return setSize
