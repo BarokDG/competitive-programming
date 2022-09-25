@@ -10,7 +10,7 @@ class Solution:
             if char in ["(", "[", "{"]:
                 stack.append(char)
             else:
-                if (len(stack)):
+                if (len(stack) != 0): # check if there's open parantheses
                     if char == ")" and stack[-1] != "(":
                         return False
                     elif char == "}" and stack[-1] != "{":
@@ -18,7 +18,7 @@ class Solution:
                     elif char == "]" and stack[-1] != "[":
                         return False
                     else:
-                        stack.pop(-1)
+                        stack.pop()
                 else:
                     return False
                     
