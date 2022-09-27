@@ -1,15 +1,27 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        ans = []
+        
+        mapping = {}
+        stack = []
+        
+        answer = []
+        
+        for num in nums2:
+            if len(stack) == 0:
+                stack.append(num)
+                continue
+                
+            while stack and num > stack[-1]:
+                mapping[stack[-1]] = num
+                stack.pop()
+                
+            stack.append(num)
+            
         
         for num in nums1:
-            next_greater_element = -1
-            
-            for i in range(nums2.index(num), len(nums2)):
-                if nums2[i] > num:
-                    next_greater_element = nums2[i]
-                    break
-            
-            ans.append(next_greater_element)
-            
-        return ans
+            if num in mapping:
+                answer.append(mapping[num])
+            else:
+                answer.append(-1)
+                
+        return answer
