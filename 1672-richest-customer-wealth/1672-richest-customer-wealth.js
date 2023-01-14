@@ -2,14 +2,22 @@
  * @param {number[][]} accounts
  * @return {number}
  */
-var maximumWealth = function(accounts) {
-    let maxWealth = 0
+var maximumWealth = function(accounts) {    
+    let totalBalances = []
     
-    for (let account of accounts) {
-        let currentAccountWealth = account.reduce((sum, current) => sum + current);
+    function sumBankBalances(account) {
+        let sum = 0;
         
-        maxWealth = Math.max(maxWealth, currentAccountWealth)
+        for (let bankBalance of account) {
+            sum += bankBalance
+        }
+        
+        return sum
     }
     
-    return maxWealth;
+    for (let account of accounts) {
+        totalBalances.push(sumBankBalances(account))
+    }
+    
+    return Math.max(...totalBalances);
 };
