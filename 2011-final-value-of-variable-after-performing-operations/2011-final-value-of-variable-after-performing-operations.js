@@ -13,5 +13,13 @@ var finalValueAfterOperations = function(operations) {
         }
     }
     
-    return x
+    return operations.reduce((x, operation) => {
+        if (operation.includes("-")) {
+            x--
+        } else {
+            x++
+        }
+        
+        return x
+    }, 0)
 };
