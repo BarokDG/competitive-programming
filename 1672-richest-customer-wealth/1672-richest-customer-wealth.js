@@ -3,7 +3,7 @@
  * @return {number}
  */
 var maximumWealth = function(accounts) {    
-    let totalBalances = []
+    let maxBalance = 0
     
     function sumBankBalances(account) {
         let sum = 0;
@@ -16,8 +16,8 @@ var maximumWealth = function(accounts) {
     }
     
     for (let account of accounts) {
-        totalBalances.push(sumBankBalances(account))
+        maxBalance = Math.max(maxBalance, sumBankBalances(account))
     }
     
-    return Math.max(...totalBalances);
+    return maxBalance
 };
