@@ -3,8 +3,13 @@
  * @return {number}
  */
 var maximumWealth = function(accounts) {
-    return accounts.reduce((richestWealth, current) => {
-        let currentWealth = current.reduce((sum, balance) => sum + balance, 0)
-        return Math.max(richestWealth, currentWealth)
-    }, 0)
+    let maxWealth = 0
+    
+    for (let account of accounts) {
+        let currentAccountWealth = account.reduce((sum, current) => sum + current);
+        
+        maxWealth = Math.max(maxWealth, currentAccountWealth)
+    }
+    
+    return maxWealth;
 };
