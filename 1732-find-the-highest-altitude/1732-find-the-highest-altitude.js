@@ -8,7 +8,10 @@ var largestAltitude = function(gain) {
     
     for (let g of gain) {
         p += g
-        m = Math.max(m, p)
+    
+        if (p > m) {
+            m = p
+        }
     }
     
     return m
