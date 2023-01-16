@@ -4,7 +4,7 @@
  */
 var largestAltitude = function(gain) {
     let m = 0
-    let p = m
+    let p = 0
     
     for (let g of gain) {
         p += g
