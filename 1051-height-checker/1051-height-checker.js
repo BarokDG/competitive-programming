@@ -8,11 +8,11 @@ var heightChecker = function(heights) {
     let expected = [...heights]
     expected.sort((a, b) => a - b)
     
-    heights.forEach((height, index) => {
-        if (expected[index] !== height) {
+    for (let i = 0; i < heights.length; i++) {
+        if (heights[i] !== expected[i]) {
             r++
         }
-    })
+    }
     
     return r
 };
