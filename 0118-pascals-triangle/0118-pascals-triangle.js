@@ -3,25 +3,16 @@
  * @return {number[][]}
  */
 var generate = function(numRows) {    
-    if (numRows === 1) return [[1]]
-    if (numRows === 2) return [[1], [1, 1]]
+    let pascal = []
     
-    let p_triangle = [[1], [1, 1]]
-    for (let i = 2; i < numRows; i++) {
-        let row = []
-        
-        for (let j = 0; j <= i; j++) {
-            if (j === 0 || j === i) {
-                row.push(1)
-                continue
-            }
-            
-            let result = p_triangle[i - 1][j] + p_triangle[i - 1][j - 1]
-            row.push(result)
+    for (let i = 0; i < numRows; i++) {
+        pascal[i] = []
+        pascal[i][0] = 1
+        for (let j = 1; j <= i; j++) {
+            pascal[i][j] = pascal[i - 1][j] + pascal[i - 1][j - 1]
         }
-        
-        p_triangle.push(row)
+        pascal[i][i] = 1
     }
     
-    return p_triangle
+    return pascal
 };
