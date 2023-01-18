@@ -2,33 +2,26 @@
  * @param {number} numRows
  * @return {number[][]}
  */
-var generate = function(numRows) {
-    let p_triangle = []
+var generate = function(numRows) {    
+    if (numRows === 1) return [[1]]
+    if (numRows === 2) return [[1], [1, 1]]
     
-    for (let i = 1; i <= numRows; i++) {
-        let arr = []
-        for (let j = 0; j < i; j++) {
-            if (j === 0 || j === i - 1) {
-                arr.push(1)
-            } else {
-                arr.push(0)
+    let p_triangle = [[1], [1, 1]]
+    for (let i = 2; i < numRows; i++) {
+        let row = []
+        
+        for (let j = 0; j <= i; j++) {
+            if (j === 0 || j === i) {
+                row.push(1)
+                continue
             }
             
+            let result = p_triangle[i - 1][j] + p_triangle[i - 1][j - 1]
+            row.push(result)
         }
         
-        p_triangle.push(arr)
+        p_triangle.push(row)
     }
     
-    return p_triangle.map((elem, index, array) => {
-        if (index === 0 || index === 1) return elem
-        
-        let previousElem = array[index - 1];
-        for (let i = 1; i < elem.length; i++) {
-            if (elem[i] !== 0) continue
-            
-            elem[i] = previousElem[i - 1] + previousElem[i]            
-        }
-        
-        return elem
-    })
+    return p_triangle
 };
